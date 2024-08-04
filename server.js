@@ -22,6 +22,7 @@ db.mongoose
     useUnifiedTopology: true
   })
   .then(() => {
+    initial();
     console.log("Connected to the database!");
   })
 
@@ -35,3 +36,35 @@ const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
+const Role = db.role;
+function initial() {
+
+    Role.estimatedDocumentCount().then(y=>{
+
+      if(y == 0)
+      {
+          new Role({
+            name: "user"
+          }).save().then(y=>{
+
+          })
+
+          new Role({
+            name: "moderator"
+          }).save().then(y=>{
+
+          })
+
+
+          new Role({
+            name: "admin"
+          }).save().then(y=>{
+
+          })
+      }
+
+    })
+
+
+  
+  }
