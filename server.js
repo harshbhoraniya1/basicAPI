@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
 });
 
 require("./routes/tutorial.routes")(app);
+require("./routes/auth.routes")(app);
 
 const PORT = 8080;
 app.listen(PORT, () => {
